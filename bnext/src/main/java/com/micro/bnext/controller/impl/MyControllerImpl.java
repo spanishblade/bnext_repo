@@ -7,25 +7,28 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.micro.bnext.api.CustomerDto;
 import com.micro.bnext.controller.MyController;
 import com.micro.bnext.controller.ResponseBase;
 import com.micro.bnext.service.MyService;
 
-public class MyControllerImpl {
+@RestController
+public class MyControllerImpl implements MyController{
 	
 //    @Autowired
 //    MyService myService;
 //    
-//	@Override
-//	public String HelloWorld() {
-//		// TODO Auto-generated method stub
-//		String message =  "Hello World!";
-//        //return new ResponseEntity<>(new ResponseBase<>(new String(String.format("Hello World!"))), HttpStatus.OK);
-//        //return new ResponseEntity<>(new ResponseBase<>(message), HttpStatus.OK);
-//		
-//		return message;
-//	}
+	@Override
+	public String HelloWorld1() {
+		return new String("Hello World 1!");
+	}
+	
+	@Override
+	public ResponseEntity<ResponseBase<String>> HelloWorld2() {
+        return new ResponseEntity<>(new ResponseBase<>(new String("Hello World 2!")), HttpStatus.OK);
+	}
     
 //	@Override
 //	public ResponseEntity<ResponseBase<List<Object>>> findAll() {

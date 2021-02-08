@@ -21,24 +21,19 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@RestController
-public class MyController {
+
+public interface MyController {
 	
     /**
      * Get HelloWorld!
      *
      * @return String
      */
-    @GetMapping("/hello")
-	public String HelloWorld() {
-		// TODO Auto-generated method stub
-		String message =  "Hello Angel!";
-        //return new ResponseEntity<>(new ResponseBase<>(new String(String.format("Hello World!"))), HttpStatus.OK);
-        //return new ResponseEntity<>(new ResponseBase<>(message), HttpStatus.OK);
-		
-		
-		return message;
-	}
+    @GetMapping("/hello1")
+	public String HelloWorld1();
+
+    @GetMapping("/hello2")
+    public ResponseEntity<ResponseBase<String>> HelloWorld2();
     
 //    /**
 //     * Get list of objects.
