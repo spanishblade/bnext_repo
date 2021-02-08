@@ -50,7 +50,7 @@ public class MyControllerImpl implements MyController{
 
 	@Override
 	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto) {
-		// return myService.create(resource);
+		//CustomerEntity customerEntity =  myService.create(dto);
 		return null;
 	}
     

@@ -1,10 +1,10 @@
-package com.micro.bnext.service;
+package com.micro.bnext.repository;
 
 import java.util.List;
 
 import com.micro.bnext.model.CustomerEntity;
 
-public interface MyService {
+public interface CustomerRepository {
 
     /**
      * Get list of objects.

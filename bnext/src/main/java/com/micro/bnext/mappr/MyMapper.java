@@ -26,6 +26,9 @@ public class MyMapper {
         return CustomerDto.builder().id(customerEntity.getId()).name(customerEntity.getName()).surname(customerEntity.getSurname()).listTelephonesDto(listTelephoneDto).build();
     }
     
+	/**
+	 * Method mapper ListTelephoneEntity To ListTelephoneDto.
+	 */
     public List<CustomerDto> ListCustomerEntityToListCustomerDto(List<CustomerEntity> listCustomerEntity) {
     	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
     	listTelephoneDto.add(TelephoneEntityToTelephoneDto(listCustomerEntity.get(0).getListTelephonesEntities().get(0)));
@@ -37,6 +40,12 @@ public class MyMapper {
         		.surname(listCustomerEntity.get(0).getSurname())
         		.listTelephonesDto(listTelephoneDto).build()));
     }
+    
+//    public CustomerDto CustomerDtoToCustomerEntity(CustomerDto customerDto) {
+//    	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
+//    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(customerEntity.getListTelephonesEntities().get(0)));
+//        return CustomerDto.builder().id(customerEntity.getId()).name(customerEntity.getName()).surname(customerEntity.getSurname()).listTelephonesDto(listTelephoneDto).build();
+//    }
     
 	/**
 	 * Method mapper TelephoneEntity To TelephoneDto.
