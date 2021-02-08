@@ -1,0 +1,47 @@
+package com.micro.bnext.mappr;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.micro.bnext.api.CustomerDto;
+import com.micro.bnext.api.TelephoneDto;
+import com.micro.bnext.model.CustomerEntity;
+import com.micro.bnext.model.TelephoneEntity;
+
+/**
+ * Controller mapper. Map rest to entity to dto and turn back.
+ */
+@Component
+public class MyMapper {
+
+	/**
+	 * Method mapper CustomerEntity To CustomerDto.
+	 */
+    public CustomerDto CustomerEntityToCustomerDto(CustomerEntity customerEntity) {
+    	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
+    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(customerEntity.getListTelephonesEntities().get(0)));
+        return CustomerDto.builder().id(customerEntity.getId()).name(customerEntity.getName()).surname(customerEntity.getSurname()).listTelephonesDto(listTelephoneDto).build();
+    }
+    
+    public List<CustomerDto> ListCustomerEntityToListCustomerDto(List<CustomerEntity> listCustomerEntity) {
+    	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
+    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(listCustomerEntity.get(0).getListTelephonesEntities().get(0)));
+    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(listCustomerEntity.get(0).getListTelephonesEntities().get(1)));
+    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(listCustomerEntity.get(0).getListTelephonesEntities().get(2)));
+        return new ArrayList<CustomerDto> (Arrays.asList(CustomerDto.builder()
+        		.id(listCustomerEntity.get(0).getId())
+        		.name(listCustomerEntity.get(0).getName())
+        		.surname(listCustomerEntity.get(0).getSurname())
+        		.listTelephonesDto(listTelephoneDto).build()));
+    }
+    
+	/**
+	 * Method mapper TelephoneEntity To TelephoneDto.
+	 */
+    public TelephoneDto TelephoneEntityToTelephoneDto(TelephoneEntity telephoneEntity) {
+        return TelephoneDto.builder().id(telephoneEntity.getId()).number(telephoneEntity.getNumber()).build();
+    }
+}

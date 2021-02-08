@@ -11,9 +11,13 @@ import lombok.Setter;
 @Setter 
 @AllArgsConstructor
 @Builder
-public class Customer {
+public class CustomerEntity {
 
+	private String id;
+	
 	private String name;
 	
-	private List<Telephone> listTelephones;
+	private String surname;
+	
+	private List<TelephoneEntity> listTelephonesEntities;
 }

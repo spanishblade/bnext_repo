@@ -9,10 +9,9 @@ import lombok.Setter;
 @Setter 
 @AllArgsConstructor
 @Builder
-public class Telephone {
+public class TelephoneEntity {
 
-	private String prefix;
+	private String id;
 	
 	private String number;
-	
 }
