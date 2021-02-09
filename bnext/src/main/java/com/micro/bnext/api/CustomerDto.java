@@ -7,12 +7,14 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class CustomerDto {
 
 	private String id;
@@ -21,5 +23,5 @@ public class CustomerDto {
 	
 	private String surname;
 	
-	private List<TelephoneDto> listTelephonesDto;
+	//private List<TelephoneDto> listTelephonesDto;
 }

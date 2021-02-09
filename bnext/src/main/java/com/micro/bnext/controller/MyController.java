@@ -41,14 +41,14 @@ public interface MyController {
      *
      * @return ResponseEntity<ResponseBase<List<Object>>>
      */
-//    @ApiOperation(value = "Get list of objects")
-//    @ApiResponses(value = {
-//        @ApiResponse(code = 200, message = ControllerConstants.API_RESPONSE_200),
-//        @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
-//    })
-//    @GetMapping(value = "/customers", produces = {
-//            MediaType.APPLICATION_JSON_VALUE})
-//    public ResponseEntity<ResponseBase<List<CustomerDto>>> findAll();
+    @ApiOperation(value = "Get list of objects")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = ControllerConstants.API_RESPONSE_200),
+        @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
+    })
+    @GetMapping(value = "/customers", produces = {
+            MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<ResponseBase<List<CustomerDto>>> findAll();
     
     
     /**
@@ -71,13 +71,13 @@ public interface MyController {
      *
      * @return ResponseEntity<ResponseBase<Object>>
      */
-//    @ApiResponses(value = {
-//            @ApiResponse(code = 201, message = ControllerConstants.API_RESPONSE_201),
-//            @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
-//        })
-//	@PostMapping(value = "/customers", produces = {
-//            MediaType.APPLICATION_JSON_VALUE})
-//	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto);
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = ControllerConstants.API_RESPONSE_201),
+            @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
+        })
+	@PostMapping(value = "/customers", produces = {
+            MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto);
 
     
     /**

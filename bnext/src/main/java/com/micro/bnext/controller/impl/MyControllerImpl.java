@@ -2,6 +2,8 @@ package com.micro.bnext.controller.impl;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,24 +38,24 @@ public class MyControllerImpl implements MyController{
         return new ResponseEntity<>(new ResponseBase<>(new String("Hello World 2!")), HttpStatus.OK);
 	}
     
-//	@Override
-//	public ResponseEntity<ResponseBase<List<CustomerDto>>> findAll() {
-//		List<CustomerEntity> listCustomerEntity = myService.findAll();
-//		return new ResponseEntity<>(new ResponseBase<>(mapper.ListCustomerEntityToListCustomerDto(listCustomerEntity)), HttpStatus.OK);
-//	}
+	@Override
+	public ResponseEntity<ResponseBase<List<CustomerDto>>> findAll() {
+		List<CustomerDto> listCustomerDto = myService.findAll().stream().map(e -> mapper.CustomerEntityToCustomerDto(e)).collect(Collectors.toList());
+		return new ResponseEntity<>(new ResponseBase<>(listCustomerDto), HttpStatus.OK);
+	}
 	
 	@Override
     public ResponseEntity<ResponseBase<CustomerDto>> findById(@PathVariable("id") String id) {
-		Customer customer =  myService.findById(id);
-		return new ResponseEntity<>(new ResponseBase<>(mapper.CustomerEntityToCustomerDto(customer)), HttpStatus.OK);
+		Optional<Customer> customer =  myService.findById(id);
+		return new ResponseEntity<>(new ResponseBase<>(mapper.CustomerEntityToCustomerDto((customer.isPresent())?customer.get():new Customer())), HttpStatus.OK);
     }
 
-//	@Override
-//	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto) {
-//		//CustomerEntity customerEntity =  myService.create(dto);
-//		return null;
-//	}
-//    
+	@Override
+	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto) {
+		Customer returnCustomer =  myService.create(mapper.CustomerDtoToCustomerEntity(dto));
+		return new ResponseEntity<>(new ResponseBase<>((mapper.CustomerEntityToCustomerDto(returnCustomer))), HttpStatus.CREATED);
+	}
+    
 //	@Override
 //	public void update(String id, CustomerDto dto) {
 //		//myService.getById(resource.getId());

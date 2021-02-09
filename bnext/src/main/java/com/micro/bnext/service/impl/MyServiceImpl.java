@@ -17,25 +17,21 @@ public class MyServiceImpl implements MyService{
 	@Autowired
 	CustomerRepository customerRepository;
 	
-//	@Override
-//	public List<Customer> findAll() {
-//		return customerRepository.findAll();
-//	}
-
 	@Override
-	public Customer findById(String id) {
-		Optional<Customer> customer = customerRepository.findById(Integer.valueOf(id));
-		if (customer.isPresent()) {
-			return customer.get();
-		}
-		return new Customer(0, "falso", "falso");
+	public List<Customer> findAll() {
+		return (List<Customer>) customerRepository.findAll();
 	}
 
-//	@Override
-//	public String create(Customer entity) {
-//		return customerRepository.create(entity);
-//	}
-//
+	@Override
+	public Optional<Customer> findById(String id) {
+		return customerRepository.findById(Integer.valueOf(id));
+	}
+
+	@Override
+	public Customer create(Customer entity) {
+		return customerRepository.save(entity);
+	}
+
 //	@Override
 //	public void update(Customer entity) {
 //		customerRepository.update(entity);

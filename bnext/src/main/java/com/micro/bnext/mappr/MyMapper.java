@@ -22,29 +22,14 @@ public class MyMapper {
     public CustomerDto CustomerEntityToCustomerDto(Customer customer) {
     	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
     	//listTelephoneDto.add(TelephoneEntityToTelephoneDto(customerEntity.getListTelephonesEntities().get(0)));
-        return CustomerDto.builder().id(String.valueOf((customer.getId()))).name(customer.getName()).surname(customer.getSurname()).listTelephonesDto(listTelephoneDto).build();
+        return CustomerDto.builder().id(String.valueOf((customer.getId()))).name(customer.getName()).surname(customer.getSurname()).build();
     }
     
-	/**
-	 * Method mapper ListTelephoneEntity To ListTelephoneDto.
-	 */
-//    public List<CustomerDto> ListCustomerEntityToListCustomerDto(List<Customer> listCustomerEntity) {
-//    	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
-//    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(listCustomerEntity.get(0).getListTelephonesEntities().get(0)));
-//    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(listCustomerEntity.get(0).getListTelephonesEntities().get(1)));
-//    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(listCustomerEntity.get(0).getListTelephonesEntities().get(2)));
-//        return new ArrayList<CustomerDto> (Arrays.asList(CustomerDto.builder()
-//        		.id(listCustomerEntity.get(0).getId())
-//        		.name(listCustomerEntity.get(0).getName())
-//        		.surname(listCustomerEntity.get(0).getSurname())
-//        		.listTelephonesDto(listTelephoneDto).build()));
-//    }
-    
-//    public CustomerDto CustomerDtoToCustomerEntity(CustomerDto customerDto) {
-//    	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
-//    	listTelephoneDto.add(TelephoneEntityToTelephoneDto(customerEntity.getListTelephonesEntities().get(0)));
-//        return CustomerDto.builder().id(customerEntity.getId()).name(customerEntity.getName()).surname(customerEntity.getSurname()).listTelephonesDto(listTelephoneDto).build();
-//    }
+    public Customer CustomerDtoToCustomerEntity(CustomerDto customerDto) {
+    	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
+    	//listTelephoneDto.add(TelephoneEntityToTelephoneDto(customerDto.getListTelephonesEntities().get(0)));
+        return Customer.builder().id(Integer.valueOf(customerDto.getId())).name(customerDto.getName()).surname(customerDto.getSurname()).build();
+    }
     
 	/**
 	 * Method mapper TelephoneEntity To TelephoneDto.
