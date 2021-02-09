@@ -1,7 +1,5 @@
 package com.micro.bnext.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,12 +18,12 @@ import lombok.Setter;
 @Builder
 @Entity
 @Table(name="CUSTOMER")
-public class Customer {
+public class Customer{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) 
 	@Column(name = "ID")
-	private Long id;
+	private Integer id;
 	
 	@Column(name = "NAME")
 	private String name;
@@ -34,4 +32,7 @@ public class Customer {
 	private String surname;
 	
 	//private List<TelephoneEntity> listTelephonesEntities;
+	
+	public Customer() {
+    }
 }
