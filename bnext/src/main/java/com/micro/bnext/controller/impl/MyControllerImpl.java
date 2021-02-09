@@ -14,7 +14,7 @@ import com.micro.bnext.api.CustomerDto;
 import com.micro.bnext.controller.MyController;
 import com.micro.bnext.controller.ResponseBase;
 import com.micro.bnext.mappr.MyMapper;
-import com.micro.bnext.model.CustomerEntity;
+import com.micro.bnext.model.Customer;
 import com.micro.bnext.service.MyService;
 
 @RestController
@@ -36,32 +36,32 @@ public class MyControllerImpl implements MyController{
         return new ResponseEntity<>(new ResponseBase<>(new String("Hello World 2!")), HttpStatus.OK);
 	}
     
-	@Override
-	public ResponseEntity<ResponseBase<List<CustomerDto>>> findAll() {
-		List<CustomerEntity> listCustomerEntity = myService.findAll();
-		return new ResponseEntity<>(new ResponseBase<>(mapper.ListCustomerEntityToListCustomerDto(listCustomerEntity)), HttpStatus.OK);
-	}
+//	@Override
+//	public ResponseEntity<ResponseBase<List<CustomerDto>>> findAll() {
+//		List<CustomerEntity> listCustomerEntity = myService.findAll();
+//		return new ResponseEntity<>(new ResponseBase<>(mapper.ListCustomerEntityToListCustomerDto(listCustomerEntity)), HttpStatus.OK);
+//	}
 	
 	@Override
     public ResponseEntity<ResponseBase<CustomerDto>> findById(@PathVariable("id") String id) {
-		CustomerEntity customerEntity =  myService.findById(id);
-		return new ResponseEntity<>(new ResponseBase<>(mapper.CustomerEntityToCustomerDto(customerEntity)), HttpStatus.OK);
+		Customer customer =  myService.findById(id);
+		return new ResponseEntity<>(new ResponseBase<>(mapper.CustomerEntityToCustomerDto(customer)), HttpStatus.OK);
     }
 
-	@Override
-	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto) {
-		//CustomerEntity customerEntity =  myService.create(dto);
-		return null;
-	}
-    
-	@Override
-	public void update(String id, CustomerDto dto) {
-		//myService.getById(resource.getId());
-		//myService.update(resource);
-    }
-
-	@Override
-	public void delete(String id) {
-		myService.deleteById(id);
-	}
+//	@Override
+//	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto) {
+//		//CustomerEntity customerEntity =  myService.create(dto);
+//		return null;
+//	}
+//    
+//	@Override
+//	public void update(String id, CustomerDto dto) {
+//		//myService.getById(resource.getId());
+//		//myService.update(resource);
+//    }
+//
+//	@Override
+//	public void delete(String id) {
+//		myService.deleteById(id);
+//	}
 }
