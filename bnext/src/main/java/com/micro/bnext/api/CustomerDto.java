@@ -35,6 +35,4 @@ public class CustomerDto implements Serializable{
 	
 	@ValidPhoneNumberCustomConstraint
 	private String phoneNumber;
-	
-	//private List<TelephoneDto> listTelephonesDto;
 }

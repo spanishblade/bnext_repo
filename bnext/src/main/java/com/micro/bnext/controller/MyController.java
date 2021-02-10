@@ -3,7 +3,6 @@ package com.micro.bnext.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,22 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.micro.bnext.api.CustomerDto;
-import com.micro.bnext.api.constraint.ValidPhoneNumberCustomConstraint;
-import com.micro.bnext.model.Customer;
-
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-
+@RequestMapping(value = "/bnext")
 public interface MyController {
 	
     /**
@@ -55,8 +46,7 @@ public interface MyController {
         @ApiResponse(code = 200, message = ControllerConstants.API_RESPONSE_200),
         @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
     })
-    @GetMapping(value = "/customers", produces = {
-            MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/customers", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ResponseBase<List<CustomerDto>>> findAll();
     
     
@@ -70,8 +60,7 @@ public interface MyController {
         @ApiResponse(code = 200, message = ControllerConstants.API_RESPONSE_200),
         @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
     })
-    @GetMapping(value = "/customers/{id}", produces = {
-            MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/customers/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	  public ResponseEntity<ResponseBase<CustomerDto>> findById(@PathVariable("id") String id);
 
     
@@ -84,8 +73,7 @@ public interface MyController {
             @ApiResponse(code = 201, message = ControllerConstants.API_RESPONSE_201),
             @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
         })
-	@PostMapping(value = "/customers", produces = {
-            MediaType.APPLICATION_JSON_VALUE})
+	@PostMapping(value = "/customers", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<ResponseBase<CustomerDto>> create(@RequestBody CustomerDto dto);
 
     
@@ -112,7 +100,6 @@ public interface MyController {
         @ApiResponse(code = 204, message = ControllerConstants.API_RESPONSE_204),
         @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
     })
-    @DeleteMapping(value = "/customers/{id}", produces = {
-    MediaType.APPLICATION_JSON_VALUE})
+    @DeleteMapping(value = "/customers/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public void delete(@PathVariable("id") String id);
 }
