@@ -56,12 +56,11 @@ public class MyControllerImpl implements MyController{
 		return new ResponseEntity<>(new ResponseBase<>((mapper.CustomerEntityToCustomerDto(returnCustomer))), HttpStatus.CREATED);
 	}
     
-//	@Override
-//	public void update(String id, CustomerDto dto) {
-//		//myService.getById(resource.getId());
-//		//myService.update(resource);
-//    }
-//
+	@Override
+	public void update(String id, CustomerDto dto) {
+		myService.update(id, mapper.CustomerDtoToCustomerEntity(dto));
+    }
+
 //	@Override
 //	public void delete(String id) {
 //		myService.deleteById(id);

@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -83,16 +84,15 @@ public interface MyController {
     /**
      * Update object by id.
      *
-     * @return ResponseEntity<ResponseBase<Object>>
      */
-//    @ApiOperation(value = "Update object by id")
-//    @ApiResponses(value = {
-//        @ApiResponse(code = 200, message = ControllerConstants.API_RESPONSE_200),
-//        @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
-//    })
-//    @PutMapping(value = "/customers/{id}", produces = {
-//            MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-//    public void update(@PathVariable( "id" ) String id, @RequestBody CustomerDto dto);
+    @ApiOperation(value = "Update object by id")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = ControllerConstants.API_RESPONSE_200),
+        @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
+    })
+    @PatchMapping(value = "/customers/{id}", produces = {
+            MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public void update(@PathVariable( "id" ) String id, @RequestBody CustomerDto dto);
 
     
     /**

@@ -26,14 +26,14 @@ public interface MyService {
      *
      * @return ResponseEntity<ResponseBase<Object>>
      */
-	public Customer create(Customer entity);
+	public Customer create(Customer customer);
 
-//    /**
-//     * Update object by id.
-//     *
-//     */
-//	public void update(CustomerEntity entity);
-//	
+    /**
+     * Update object by id.
+     *
+     */
+	public void update(String id, Customer customer);
+	
 //    /**
 //     * Delete object by id.
 //     *
