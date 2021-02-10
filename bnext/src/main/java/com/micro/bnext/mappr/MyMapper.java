@@ -28,7 +28,7 @@ public class MyMapper {
     public Customer CustomerDtoToCustomerEntity(CustomerDto customerDto) {
     	List<TelephoneDto> listTelephoneDto = new ArrayList<TelephoneDto>();
     	//listTelephoneDto.add(TelephoneEntityToTelephoneDto(customerDto.getListTelephonesEntities().get(0)));
-        return Customer.builder().id(Integer.valueOf(customerDto.getId())).name(customerDto.getName()).surname(customerDto.getSurname()).build();
+        return Customer.builder().name(customerDto.getName()).surname(customerDto.getSurname()).build();
     }
     
 	/**
