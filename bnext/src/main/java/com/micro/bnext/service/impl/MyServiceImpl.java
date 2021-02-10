@@ -35,6 +35,7 @@ public class MyServiceImpl implements MyService{
 		if (customerDB.isPresent()) {
 			customerDB.get().setName(customer.getName());
 			customerDB.get().setSurname(customer.getSurname());
+			customerDB.get().setPhoneNumber(customer.getPhoneNumber());
 			customerRepository.save(customerDB.get());
 		}
 	}

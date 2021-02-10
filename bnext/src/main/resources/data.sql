@@ -1,4 +1,4 @@
-INSERT INTO bnextdb.CUSTOMER(NAME,SURNAME)values('Leonardo','DaVinci');
-INSERT INTO bnextdb.CUSTOMER(NAME,SURNAME)values('Albert','Einstein');
-INSERT INTO bnextdb.CUSTOMER(NAME,SURNAME)values('Nikola','Tesla');
-INSERT INTO bnextdb.CUSTOMER(NAME,SURNAME)values('Isaac','Peral');
+INSERT INTO bnextdb.CUSTOMER(ID,NAME,SURNAME,PHONE_NUMBER)values(1,'Leonardo','DaVinci','674739091');
+INSERT INTO bnextdb.CUSTOMER(ID,NAME,SURNAME,PHONE_NUMBER)values(2,'Albert','Einstein','612098566');
+INSERT INTO bnextdb.CUSTOMER(ID,NAME,SURNAME,PHONE_NUMBER)values(3,'Nikola','Tesla','600984322');
+INSERT INTO bnextdb.CUSTOMER(ID,NAME,SURNAME,PHONE_NUMBER)values(4,'Isaac','Peral','612345654');

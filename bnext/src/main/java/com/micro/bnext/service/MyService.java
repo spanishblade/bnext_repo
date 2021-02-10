@@ -8,23 +8,23 @@ import com.micro.bnext.model.Customer;
 public interface MyService {
 
     /**
-     * Get list of objects.
+     * Get list of customer.
      *
-     * @return List<CustomerEntity>
+     * @return List<Customer>
      */
 	public List<Customer> findAll();
 
     /**
      * Get object by id.
      *
-     * @return CustomerEntity
+     * @return Optional<Customer>
      */
 	public Optional<Customer> findById(String id);
 
     /**
-     * Create object.
+     * Create customer.
      *
-     * @return ResponseEntity<ResponseBase<Object>>
+     * @return Customer
      */
 	public Customer create(Customer customer);
 

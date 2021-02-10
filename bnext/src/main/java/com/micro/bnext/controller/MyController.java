@@ -2,6 +2,8 @@ package com.micro.bnext.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.micro.bnext.api.CustomerDto;
+import com.micro.bnext.api.constraint.ValidPhoneNumberCustomConstraint;
 import com.micro.bnext.model.Customer;
 
 import io.swagger.annotations.ApiOperation;
@@ -27,20 +30,25 @@ import io.swagger.annotations.ApiResponses;
 public interface MyController {
 	
     /**
-     * Get HelloWorld!
+     * Get HelloWorld1!
      *
      * @return String
      */
     @GetMapping("/hello1")
 	public String HelloWorld1();
 
+    /**
+     * Get HelloWorld2!
+     *
+     * @return ResponseEntity<ResponseBase<String>>
+     */    
     @GetMapping("/hello2")
     public ResponseEntity<ResponseBase<String>> HelloWorld2();
     
     /**
      * Get list of objects.
      *
-     * @return ResponseEntity<ResponseBase<List<Object>>>
+     * @return ResponseEntity<ResponseBase<List<CustomerDto>>>
      */
     @ApiOperation(value = "Get list of objects")
     @ApiResponses(value = {
@@ -55,7 +63,7 @@ public interface MyController {
     /**
      * Get object by id.
      *
-     * @return ResponseEntity<ResponseBase<Object>>
+     * @return ResponseEntity<ResponseBase<CustomerDto>>
      */
     @ApiOperation(value = "Get object by id")
     @ApiResponses(value = {
@@ -70,7 +78,7 @@ public interface MyController {
     /**
      * Create object.
      *
-     * @return ResponseEntity<ResponseBase<Object>>
+     * @return ResponseEntity<ResponseBase<CustomerDto>>
      */
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = ControllerConstants.API_RESPONSE_201),
@@ -92,13 +100,12 @@ public interface MyController {
     })
     @PatchMapping(value = "/customers/{id}", produces = {
             MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public void update(@PathVariable( "id" ) String id, @RequestBody CustomerDto dto);
+    public void update(@PathVariable( "id" ) String id, @Valid @RequestBody CustomerDto dto);
 
     
     /**
      * Delete object by id.
      *
-     * @return ResponseEntity<ResponseBase<Object>>
      */
     @ApiOperation(value = "Delete object by id")
     @ApiResponses(value = {

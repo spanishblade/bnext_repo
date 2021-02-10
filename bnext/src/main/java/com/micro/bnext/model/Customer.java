@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,6 +34,10 @@ public class Customer{
 	
 	@Column(name = "SURNAME")
 	private String surname;
+	
+	
+	@Column(name = "PHONE_NUMBER")
+	private String phoneNumber;
 	
 	//private List<TelephoneEntity> listTelephonesEntities;
 }
