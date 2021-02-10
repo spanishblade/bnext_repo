@@ -100,12 +100,12 @@ public interface MyController {
      *
      * @return ResponseEntity<ResponseBase<Object>>
      */
-//    @ApiOperation(value = "Delete object by id")
-//    @ApiResponses(value = {
-//        @ApiResponse(code = 204, message = ControllerConstants.API_RESPONSE_204),
-//        @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
-//    })
-//    @DeleteMapping(value = "/customers/{id}", produces = {
-//    MediaType.APPLICATION_JSON_VALUE})
-//    public void delete(@PathVariable("id") String id);
+    @ApiOperation(value = "Delete object by id")
+    @ApiResponses(value = {
+        @ApiResponse(code = 204, message = ControllerConstants.API_RESPONSE_204),
+        @ApiResponse(code = 500, message = ControllerConstants.API_RESPONSE_500)
+    })
+    @DeleteMapping(value = "/customers/{id}", produces = {
+    MediaType.APPLICATION_JSON_VALUE})
+    public void delete(@PathVariable("id") String id);
 }

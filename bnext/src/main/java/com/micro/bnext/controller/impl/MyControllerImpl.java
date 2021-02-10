@@ -61,8 +61,8 @@ public class MyControllerImpl implements MyController{
 		myService.update(id, mapper.CustomerDtoToCustomerEntity(dto));
     }
 
-//	@Override
-//	public void delete(String id) {
-//		myService.deleteById(id);
-//	}
+	@Override
+	public void delete(String id) {
+		myService.delete(id);
+	}
 }

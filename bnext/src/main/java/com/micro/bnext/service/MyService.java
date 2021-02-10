@@ -34,9 +34,9 @@ public interface MyService {
      */
 	public void update(String id, Customer customer);
 	
-//    /**
-//     * Delete object by id.
-//     *
-//     */
-//	public void deleteById(String id);
+    /**
+     * Delete object by id.
+     *
+     */
+	public void delete(String id);
 }

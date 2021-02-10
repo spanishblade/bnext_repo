@@ -39,8 +39,11 @@ public class MyServiceImpl implements MyService{
 		}
 	}
 	
-//	@Override
-//	public void deleteById(String id) {
-//		customerRepository.deleteById(id);
-//	}
+	@Override
+	public void delete(String id) {
+		Optional<Customer> customerDB = customerRepository.findById(Integer.valueOf(id));
+		if (customerDB.isPresent()) {
+			customerRepository.delete(customerDB.get());
+		}
+	}
 }
