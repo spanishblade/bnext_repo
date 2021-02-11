@@ -14,3 +14,48 @@ Here we practically just "touch" our file so that it has its modification time u
 
 ENTRYPOINT - This allows you to configure a container that will run as an executable. 
 It's where you tell Docker how to run your application. We know we run our spring-boot app as java -jar <app-name>.jar, so we put it in an array.
+
+
+PRACTICE EXAMPLE TO DOCKERIZE SPRINGBOOT+GRADLE APP:
+
+Sure you gradle build and springboot:run work
+
+1. 	Create 1 file called Dockerfile in main root of project:
+
+FROM java:8
+ADD build/libs*.jar dockerapp.jar
+EXPOSE 8888
+ENTRYPOINT ["java","-jar","dockerapp.jar"]
+
+2. 	Git Bash (develop branch) build the docker image:
+
+	$ docker build -t dockerappimage .
+
+3. 	Check our docker image  dockerappimage has been created:
+
+	$ docker image
+
+	REPOSITORY                         TAG        IMAGE ID       CREATED          SIZE
+	dockerappimage                     latest     e5c36a345c35   11 seconds ago   643MB
+	
+4. 	Run a container/app with our docker image dockerappimage previously created:
+	[Una vez tenemos creada la imagen, nos aparece en el Docker Desktop/Panel Izquierdo/Imagenes. 
+	Ahora corremos un contenedor/app a partir de esa imagen con boton RUN o directamentemente usamos en CMD el comando:]
+
+
+	$  docker run -d -p 8020:8888 /bnext/dockerappimage
+
+5.	We check our new container/app:
+
+	$ docker ps -a
+	
+	CONTAINER ID   IMAGE                                       COMMAND                    CREATED          STATUS                      PORTS                              NAMES
+	05398d722bba   dockerappimage                              "java -jar dockerappÔÇª"   49 seconds ago   Exited (1) 49 seconds ago                                      jolly_maxwell
+		
+6.	We check http://localhost:8888/bnext/hello2
+	
+	
+	
+	$ docker run -d -p 8080:8080 dockerfolder/dockerapp.jar
+	
+	
