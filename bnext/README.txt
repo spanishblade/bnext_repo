@@ -22,28 +22,28 @@ Sure you gradle build and springboot:run work
 
 1. 	Create 1 file called Dockerfile in main root of project:
 
-FROM java:8
-ADD build/libs*.jar dockerapp.jar
-EXPOSE 8888
-ENTRYPOINT ["java","-jar","dockerapp.jar"]
+
+
 
 2. 	Git Bash (develop branch) build the docker image:
 
-	$ docker build -t dockerappimage .
+	$ docker build -t bnext .
 
 3. 	Check our docker image  dockerappimage has been created:
 
-	$ docker image
+	$ docker images
 
 	REPOSITORY                         TAG        IMAGE ID       CREATED          SIZE
-	dockerappimage                     latest     e5c36a345c35   11 seconds ago   643MB
+	bnext                              latest     1b4188a371df   43 seconds ago   567MB
+
+
 	
 4. 	Run a container/app with our docker image dockerappimage previously created:
 	[Una vez tenemos creada la imagen, nos aparece en el Docker Desktop/Panel Izquierdo/Imagenes. 
 	Ahora corremos un contenedor/app a partir de esa imagen con boton RUN o directamentemente usamos en CMD el comando:]
 
 
-	$  docker run -d -p 8020:8888 /bnext/dockerappimage
+	$  docker run -d -p 8080:8080 bnext
 
 5.	We check our new container/app:
 
@@ -56,6 +56,6 @@ ENTRYPOINT ["java","-jar","dockerapp.jar"]
 	
 	
 	
-	$ docker run -d -p 8080:8080 dockerfolder/dockerapp.jar
+	$ docker run -d -p 8080:8080 bnext
 	
 	
